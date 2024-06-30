@@ -18,7 +18,9 @@ router.post("/", async(req, res) => {
     }
     else {
         const token = user.generateAuthToken(user);
-        res.status(200).send({data: token, message: "Login successfully!"});
+        
+        const user_id = user._id;
+        res.status(200).send({data: token, message: "Login successfully!", id: user_id});
     }
 });
 

@@ -1,0 +1,44 @@
+.model_container {
+    width: 50rem;
+    border-radius: 1rem;
+    border: 1px dashed var(--primary);
+    padding: 5rem;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: calc(50% - 40rem);
+    // left: calc(50% - 20rem);
+    z-index: 100;
+
+
+    .close_btn {
+        position: absolute;
+        right: 0%;
+        top: 0%;
+        svg {
+            width: 2rem;
+            height: 2rem;
+            color: var(--primary);
+        }
+    }
+
+    .form_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 70rem;
+
+       
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+ 
+        }
+
+        p {
+            font-size: 2.2rem;
+        }
+    }
+}

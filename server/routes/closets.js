@@ -7,9 +7,10 @@ const admin = require("../middleware/admin");
 const validObjectId = require("../middleware/validObjectId");
 const joi = require("joi");
 const { Schema } = require("mongoose");
+const mongoose = require('mongoose');
 
 //create closet
-router.post("/", auth, async(req, res) => {
+router.post("/create", auth, async(req, res) => {
     try {
          // Check if the closet belong to the authenticated user
         const authenticatedUser = await User.findById(req.user._id);
@@ -31,7 +32,7 @@ router.post("/", auth, async(req, res) => {
 
     }
     catch (error) {
-        console.log('Server Error:' + error);
+        console.log('Create Server Error:' + error);
     }
 });
 
@@ -46,7 +47,50 @@ router.get("/all", admin, async(req, res) => {
     }
     catch (err) {
         console.log(err);
-        res.status(500).send({message: "Server Error"});
+        res.status(500).send({message: "Get all closet admin server Error"});
+    }
+});
+
+//get closet by closet id
+router.get("/:closet_id", auth, async(req, res) => {
+    try {
+        // Check if the closet belong to the authenticated user
+        const authenticated = await Closet.findOne({
+            "_id": req.params.closet_id,
+            "user": req.user._id.toString(),
+        });
+
+
+        if (!authenticated) {
+            return res.status(403).send({ message: 'Access denied' });;
+        } 
+        
+        res.status(200).send({data: authenticated});
+
+    }
+    catch(error) {
+        console.log('Get Closet by Closet ID Server Error:' + error);
+    }
+});
+
+//get all closets by user id
+router.get("/", auth, async(req, res) => {
+    try {
+        // Check if the closet belong to the authenticated user
+        const authenticated = await Closet.findOne({
+            "user": req.user._id.toString(),
+        });
+
+
+        if (!authenticated) {
+            return res.status(403).send({ message: 'Access denied' });;
+        } 
+        
+        res.status(200).send({data: authenticated});
+
+    }
+    catch(error) {
+        console.log('Get Closet by User ID Server Error:' + error);
     }
 });
 
@@ -82,7 +126,7 @@ router.put("/edit/:closet_id", auth, async(req, res) => {
     }
     catch(error) {
         console.log(error);
-        res.status(500).send({message: "Server Error"});
+        res.status(500).send({message: "Edit Closet Server Error"});
     }
 });
 
@@ -108,7 +152,7 @@ router.delete("/delete/:closet_id", auth, async(req, res) => {
 
     }
     catch(error) {
-        console.log('Server Error:' + error);
+        console.log('Delete Closet Server Error:' + error);
     }
 });
 

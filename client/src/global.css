@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: white;
+}
+
+html {
+  font-size: 10px;
+}
+
+a {
+  text-decoration: nont;
+  color: inherit;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+:root {
+  --primary: #543884;
+  --secondary: #9A77CF;
+  --info: #262254;
+  --dark-red: #A13670;
+  --light-red: #EC4176;
+  --yellow: #FFA45E;
+  --white: #FFFFFF;
+  --black: #111111;
+  --gray: #8C8C8C;
+  --light-gray: #b1b1b1;
+  --bg: #efebe2;
+
+  --error: #cc0000;
+  --toastify-toast-min-height: 5rem;
+}
+
+.Toastify_toast-theme--colored.Toastify_toast--success {
+  background-color: var(--secondary);
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 1rem;
+}
+
+.Toastify_toast-theme--colored.Toastify_toast--error {
+  background-color: var(--white);
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 1rem;
+}

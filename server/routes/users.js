@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const {User, validate} = require("../models/user");
+const {Closet} = require("../models/closet");
 const bcrypt = require("bcrypt");
 const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
@@ -26,7 +27,34 @@ router.post("/", async(req, res) => {
     newUser.pwd = undefined;
     newUser.__v = undefined;
 
-    res.status(200).send({data: newUser, message: "Account created successfully!"});
+    // after create a new user, create a default closet
+    try {      
+        const defaultCloset = {
+            "img": "https://images.unsplash.com/photo-1614631446501-abcf76949eca?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "user": newUser._id,
+            "desc": "Your Default Closet",
+            "clothes": []
+
+        }
+
+       const closet = await Closet(defaultCloset).save(); //save req.body's data to db
+
+       const authenticatedUser = await User.findById(newUser._id);
+       if (!authenticatedUser) {
+           console.error('User not found');
+           return res.status(403).send({ message: 'Access denied' });;
+       }  
+       
+       authenticatedUser.closet.push(closet._id);
+       await authenticatedUser.save();
+
+       return res.status(201).send({data: {newUser, closet}, message: "Account created and create closet successfully!"});
+
+   }
+   catch(e) {
+    console.log(e);
+   }
+
 });
 
 

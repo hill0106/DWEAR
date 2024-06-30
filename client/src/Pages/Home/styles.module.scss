@@ -1,0 +1,151 @@
+.container {
+    overflow-x: hidden;
+
+    .navbar_container {
+        width: calc(100vw - 20rem);
+        height: 8rem;
+        background-color: #efebe2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10rem;
+    }
+
+    .nav_logo {
+        img {
+            width: 16rem;
+        }
+    }
+
+    .nav_links {
+        display: flex;
+        color: var(--primary);
+
+        .links {
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.6rem;
+            padding: 0 1.8rem;
+            cursor: pointer;
+            color: var(--primary);
+
+            &:hover {
+                color: var(--secondary);
+            }
+        }
+        :nth-child(3) {
+            border-right: 1px solid var(white);
+        }
+    }
+    .top{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 3rem;
+        margin-left: 10rem;
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--info);
+        }
+        
+
+    }
+
+
+
+    
+}
+
+.container1 {
+    height: 10rem;
+    width: 100%;
+    background: var(--bg);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // padding: 0 2rem 0 26rem;
+    z-index: 99;
+
+    .left {
+        .logo {
+            width: 100%;
+            height: 12rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10rem;
+    
+            img {
+                width: 20rem;
+            }
+        }
+    }
+
+    .right{
+        .profile_menu {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
+            color: var(--primary);
+            border-radius: 2rem;
+            cursor: pointer;
+            margin-right: 1rem;
+
+            &:hover {
+                background-color: var(--secondary);
+                color: white;
+            }
+
+            svg {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+
+            p {
+                font-size: 2rem;
+                font-weight: 600;
+                margin: 0 0.6rem;
+            }
+        }
+    }
+
+    .menu {
+        width: 20rem;
+        position: absolute;
+        padding: 0.5rem;
+        top: 5.4rem;
+        right: 2rem;
+        border-radius: 0.5rem;
+        background-color: var(--bg);
+        z-index: 100;
+
+        .options {
+            color: var(--primary);
+            padding: 1rem;
+            border-radius: 0.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+
+            p {
+                margin: 0;
+                font-size: 2rem;
+                font-weight: 500;
+                text-decoration: none;
+            }
+
+            svg {
+                width: 2rem;
+                height: 2rem;
+            }
+
+            &:hover {
+                background-color: var(--secondary);
+                color: white;
+            }
+        }
+    }
+}

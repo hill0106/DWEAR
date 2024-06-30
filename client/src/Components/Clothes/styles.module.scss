@@ -1,0 +1,27 @@
+.clothes_container {
+
+        .clothes {
+            width: 45rem;
+            height: 60rem;
+            border-radius: 1rem;
+            margin: 3rem;
+            a {
+                text-decoration: none;
+            }
+        
+            img {
+                width: 100%;
+                height: 65%;
+                object-fit: cover;
+            }
+            h3 {
+                font-size: 2.2rem;
+                font-family: "Fraunces", serif;
+                font-weight: 700;
+                color: var(--info);
+                margin: 1rem 0;
+            }
+
+    }
+  }
+

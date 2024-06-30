@@ -19,10 +19,10 @@ const validate = (clothes) => {
         name: joi.string().min(1).max(50).required(),
         user: joi.string().required(),
         closet: joi.string().required(),
-        category: joi.string().valid("Top", "Down", "Shoes", "Outerwear", "Bag", "Accessory", "Jewellery").required(),
-        color: joi.string().valid("White", "Black", "Gray", "Brown", "Beige", "Camel", "Red", "Orange", "Yellow", "Green", "Blue", "Navy", "Purple", "Pink", "Silver", "Gold", "Misc").required(),
+        category: joi.string().valid("Top", "Down", "Shoes", "Outerwear", "Bag", "Accessory", "Jewellery", "Other").required(),
+        color: joi.string().valid("White", "Black", "Gray", "Brown", "Beige", "Camel", "Red", "Orange", "Yellow", "Green", "Blue", "Navy", "Purple", "Pink", "Silver", "Gold", "Misc", "Other").required(),
         brand: joi.string(),
-        season:  joi.string().valid("Spring", "Summer", "Fall", "Winter")
+        season:  joi.string().valid("Spring", "Summer", "Fall", "Winter", "Other")
     });
     return schema.validate(clothes);
 }
